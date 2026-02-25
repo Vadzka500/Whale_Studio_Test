@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Whale_Test</string>
+    <string name="information_text">Информация</string>
+    <string name="promotion_text">Акции</string>
+    <string name="news_text">Новости</string>
+    <string name="phone_placeholder">+7</string>
+    <string name="name_placeholder_text">Введите имя</string>
+    <string name="date_placeholder">ДД.MM.ГГ</string>
+    <string name="agreement_processing_first_text">Я согласен с</string>
+    <string name="agreement_processing_end_text">условиями обработки персональных данных.</string>
+    <string name="signup_header_title">Регистрация аккаунта</string>
+    <string name="signup_header_text">Заполните поля данных ниже</string>
+    <string name="phone_text">Номер телефона</string>
+    <string name="name_text">Ваше имя</string>
+    <string name="birthday_text">Дата рождения</string>
+    <string name="singup_button_text">Зарегистрироваться</string>
+    <string name="back_text">Назад</string>
+    <string name="date_time_picker_select_text">Выбрать</string>
+    <string name="date_time_picker_dismiss_text">Отмена</string>
 </resources>

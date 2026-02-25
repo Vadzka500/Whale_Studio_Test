@@ -2,9 +2,11 @@ package com.example.whale_test.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.example.whale_test.R
 
 // Set of Material typography styles to start with
 val Typography = Typography(
@@ -31,4 +33,9 @@ val Typography = Typography(
         letterSpacing = 0.5.sp
     )
     */
+)
+
+val Sf_ui = FontFamily(
+    Font(R.font.sf_ui_display_semibold, FontWeight.SemiBold),
+    Font(R.font.sf_ui_display_light, FontWeight.Normal),
 )
