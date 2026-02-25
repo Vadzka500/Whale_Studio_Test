@@ -76,7 +76,7 @@ data class SignUpState(
 
 private const val AgreementProcessingTag = "agreement_processing"
 
-@Preview
+
 @Composable
 fun SignUpScreen(
     state: SignUpState,
@@ -85,7 +85,12 @@ fun SignUpScreen(
     modifier: Modifier = Modifier
 ) {
 
+    var name by remember { mutableStateOf("") }
+    var phone by remember { mutableStateOf("") }
+    var date by remember { mutableStateOf<LocalDate?>(null) }
+
     Box(modifier = modifier) {
+
         BackBlock(onBack = onBack)
 
         val scroll = rememberScrollState()
@@ -97,13 +102,6 @@ fun SignUpScreen(
                 .background(MaterialTheme.colorScheme.background)
                 .verticalScroll(scroll)
         ) {
-
-
-            var name by remember { mutableStateOf("") }
-            var phone by remember { mutableStateOf("") }
-            var date by remember { mutableStateOf<LocalDate?>(null) }
-
-
 
             Text(
                 stringResource(R.string.signup_header_title),
@@ -150,6 +148,7 @@ fun SignUpScreen(
                 color = TextColorGray,
                 modifier = Modifier.padding(top = 8.dp)
             )
+
             BasicTextField(
                 name,
                 onValueChange = { name = it },
@@ -161,6 +160,7 @@ fun SignUpScreen(
                     .fillMaxWidth()
                     .padding(top = 4.dp)
             )
+
             Text(
                 text = stringResource(R.string.birthday_text),
                 fontFamily = Sf_ui,
@@ -168,6 +168,7 @@ fun SignUpScreen(
                 fontSize = 14.sp,
                 color = TextColorGray, modifier = Modifier.padding(top = 8.dp)
             )
+
             DateTextField(
                 date, onValueChange = { date = it },
                 stringResource(R.string.date_placeholder),
@@ -190,7 +191,7 @@ fun AgreementProcessingBlock(modifier: Modifier = Modifier) {
     var agreementProcessing by remember { mutableStateOf(false) }
 
     Row(
-        modifier = Modifier.padding(top = 16.dp)
+        modifier = modifier.padding(top = 16.dp)
     ) {
         Checkbox(
             checked = agreementProcessing,
