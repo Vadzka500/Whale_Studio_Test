@@ -102,7 +102,7 @@ fun SignUpScreen(
             var name by remember { mutableStateOf("") }
             var phone by remember { mutableStateOf("") }
             var date by remember { mutableStateOf<LocalDate?>(null) }
-            var agreementProcessing by remember { mutableStateOf(false) }
+
 
 
             Text(
@@ -176,38 +176,46 @@ fun SignUpScreen(
                     .padding(top = 4.dp)
             )
 
-            val textAgreementProcessing = getAgreementProcessingText()
-            Row(
-                modifier = Modifier.padding(top = 16.dp)
-            ) {
-                Checkbox(
-                    checked = agreementProcessing,
-                    onCheckedChange = { agreementProcessing = !agreementProcessing })
-                Text(
-                    text = textAgreementProcessing,
-                    fontFamily = Sf_ui,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 14.sp,
-                    modifier = Modifier.pointerInput(Unit) {
-                        detectTapGestures { offset: Offset ->
+            AgreementProcessingBlock()
 
-                            textAgreementProcessing.getStringAnnotations(
-                                start = 0,
-                                end = textAgreementProcessing.length
-                            ).last().let { annotation ->
-                                when (annotation.tag) {
-                                    AgreementProcessingTag -> {
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-                )
-            }
             SignUpButton()
 
         }
+    }
+}
+
+@Composable
+fun AgreementProcessingBlock(modifier: Modifier = Modifier) {
+    val textAgreementProcessing = getAgreementProcessingText()
+    var agreementProcessing by remember { mutableStateOf(false) }
+
+    Row(
+        modifier = Modifier.padding(top = 16.dp)
+    ) {
+        Checkbox(
+            checked = agreementProcessing,
+            onCheckedChange = { agreementProcessing = !agreementProcessing })
+        Text(
+            text = textAgreementProcessing,
+            fontFamily = Sf_ui,
+            fontWeight = FontWeight.Normal,
+            fontSize = 14.sp,
+            modifier = Modifier.pointerInput(Unit) {
+                detectTapGestures { offset: Offset ->
+
+                    textAgreementProcessing.getStringAnnotations(
+                        start = 0,
+                        end = textAgreementProcessing.length
+                    ).last().let { annotation ->
+                        when (annotation.tag) {
+                            AgreementProcessingTag -> {
+
+                            }
+                        }
+                    }
+                }
+            }
+        )
     }
 }
 
