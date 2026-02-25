@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     Whale_TestTheme {
-        Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
+        Scaffold(modifier = modifier.fillMaxSize()) { _ ->
 
            /* InformationScreen(
                 InformationState(getListPromotions()),

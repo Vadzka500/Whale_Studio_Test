@@ -51,7 +51,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.whale_test.R
@@ -170,8 +169,8 @@ fun SignUpScreen(
             )
 
             DateTextField(
-                date, onValueChange = { date = it },
-                stringResource(R.string.date_placeholder),
+                value = date, onValueChange = { date = it },
+                label = stringResource(R.string.date_placeholder),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 4.dp)
@@ -278,11 +277,11 @@ fun BackBlock(
 @Composable
 fun BasicTextField(
     value: String,
-    onValueChange: (String) -> Unit,
     label: String,
     isError: Boolean,
     keyboardType: KeyboardType,
     errorText: String,
+    onValueChange: (String) -> Unit,
     modifier: Modifier
 ) {
 
@@ -332,8 +331,8 @@ fun BasicTextField(
 @Composable
 fun DateTextField(
     value: LocalDate?,
-    onValueChange: (LocalDate) -> Unit,
     label: String,
+    onValueChange: (LocalDate) -> Unit,
     modifier: Modifier = Modifier
 ) {
 
